@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bridgelabz.springboot.dto.ForgotPasswordDto;
 import com.bridgelabz.springboot.dto.LoginDto;
-import com.bridgelabz.springboot.dto.RegistrationDto;
+import com.bridgelabz.springboot.dto.RegisterDto;
 import com.bridgelabz.springboot.dto.ResetPasswordDto;
 import com.bridgelabz.springboot.model.User;
 import com.bridgelabz.springboot.repository.UserRepository;
@@ -35,13 +35,14 @@ public class UserController {
 	UserRepository repository;
 
 	@PostMapping("/addUser")
-	public ResponseEntity<Response> addUser(@RequestBody RegistrationDto registrationDto) {
+	public ResponseEntity<Response> addUser(@RequestBody RegisterDto registrationDto) {
+		System.out.println("my data"+registrationDto.toString());
 		return new ResponseEntity<Response>(service.saveUser(registrationDto), HttpStatus.OK);
 	}
 
 	@PostMapping("/login")
-	public ResponseEntity<Response> login(@RequestBody LoginDto loginDto, @RequestParam String token) {
-		return new ResponseEntity<Response>(service.login(loginDto, token), HttpStatus.OK);
+	public ResponseEntity<Response> login(@RequestBody LoginDto loginDto) {
+		return new ResponseEntity<Response>(service.login(loginDto), HttpStatus.OK);
 	}
 
 	@PostMapping("/forgotPassword")
@@ -52,6 +53,11 @@ public class UserController {
 	@PostMapping("/resetPassword")
 	public ResponseEntity<Response> resetPassword(@RequestBody ResetPasswordDto resetPasswordDto) {
 		return new ResponseEntity<Response>(service.resetPassword(resetPasswordDto), HttpStatus.OK);
+	}
+	
+	@PostMapping("/isVerify")
+	public ResponseEntity<Response> isVerifiy(@RequestParam String token){
+		return new ResponseEntity<Response>(service.isVerified(token), HttpStatus.OK);
 	}
 
 	@GetMapping("/list")

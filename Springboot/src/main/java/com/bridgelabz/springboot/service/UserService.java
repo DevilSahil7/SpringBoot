@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.bridgelabz.springboot.dto.ForgotPasswordDto;
 import com.bridgelabz.springboot.dto.LoginDto;
-import com.bridgelabz.springboot.dto.RegistrationDto;
+import com.bridgelabz.springboot.dto.RegisterDto;
 import com.bridgelabz.springboot.dto.ResetPasswordDto;
 import com.bridgelabz.springboot.model.User;
 import com.bridgelabz.springboot.utility.Response;
@@ -21,13 +21,15 @@ public interface UserService {
 	
 	//User login(LoginDto loginDto);
 
-	Response saveUser(RegistrationDto registrationDto);
+	public Response saveUser(RegisterDto registrationDto);
 
-	Response login(LoginDto loginDto, String token);
+	public Response login(LoginDto loginDto);
 	
-	Response forgotPassword(ForgotPasswordDto forgotPasswordDto);
+	public Response forgotPassword(ForgotPasswordDto forgotPasswordDto);
 	
-	Response resetPassword(ResetPasswordDto resetPasswordDto);
+	public Response resetPassword(ResetPasswordDto resetPasswordDto);
+	
+	public Response isVerified(String token);
 
 //	void saveUser(User registrationDto);
 }

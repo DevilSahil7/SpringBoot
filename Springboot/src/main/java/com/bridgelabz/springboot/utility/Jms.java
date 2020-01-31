@@ -13,9 +13,9 @@ public class Jms {
 
 	public void sendMail(String email, String token) 
 	{
-		System.out.println("email" + email);
+		System.out.println("email " + email);
 		SimpleMailMessage mail = new SimpleMailMessage();
-		mail.setFrom("sahilkudake7@gmail.com");
+		mail.setFrom("chintookudake@gmail.com");
 		mail.setTo(email);
 		mail.setText(token);
 		mail.setSubject("Verification Token");

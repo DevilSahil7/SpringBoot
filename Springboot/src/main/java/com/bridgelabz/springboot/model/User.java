@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "employee")
+@Table(name = "User")
 public class User implements Serializable {
 
 	@Id
@@ -27,8 +27,11 @@ public class User implements Serializable {
 	@Column(name = "mobile_no")
 	private long mobileNo;
 	private String confirmPassword;
+	
+	private boolean isVerify;
 
 	public User() {
+		System.out.println("user constructor");
 	
 	}
 
@@ -88,6 +91,14 @@ public class User implements Serializable {
 
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
+	}
+
+	public boolean isVerify() {
+		return isVerify;
+	}
+
+	public void setVerify(boolean isVerify) {
+		this.isVerify = isVerify;
 	}
 
 	@Override
