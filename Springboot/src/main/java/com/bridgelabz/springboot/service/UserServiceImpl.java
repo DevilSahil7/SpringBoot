@@ -116,16 +116,15 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Response forgotPassword(ForgotPasswordDto forgotPasswordDto) {
-		User user = modelMapper.map(forgotPasswordDto, User.class);
 		User userForget = repository.findByEmail(forgotPasswordDto.getEmail());
 		if (userForget != null) {
 			String token = jwt.createToken(forgotPasswordDto.getEmail());
 			jms.sendMail(forgotPasswordDto.getEmail(), token);
 			return new Response(environment.getProperty("SERVER_CODE_SUCCESS"),
 					environment.getProperty("FORGOT_PASSWORD"));
-		}else {
-		return new Response(environment.getProperty("SERVER_CODE_ERROR"),
-				environment.getProperty("INVALID_CREDENTIALS"));
+		} else {
+			return new Response(environment.getProperty("SERVER_CODE_ERROR"),
+					environment.getProperty("INVALID_CREDENTIALS"));
 		}
 	}
 
@@ -154,17 +153,5 @@ public class UserServiceImpl implements UserService {
 		} else
 			return new Response(environment.getProperty("SERVER_CODE_ERROR"), environment.getProperty("TOKEN_ERROR"));
 	}
-
-//	@Override
-//	public void saveUser(User registrationDto) {
-//		//User user = modelMapper.map(registrationDto, User.class);
-//		repository.save(registrationDto);
-//	}
-//	@Override
-//	public void saveUser(RegistrationDto registrationDto) {
-//		User user = modelMapper.map(registrationDto, User.class);
-//		repository.save(user);
-//
-//	}
 
 }

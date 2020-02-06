@@ -11,8 +11,7 @@ public class Jms {
 	@Autowired
 	private JavaMailSender javaMailsender;
 
-	public void sendMail(String email, String token) 
-	{
+	public void sendMail(String email, String token) {
 		System.out.println("email " + email);
 		SimpleMailMessage mail = new SimpleMailMessage();
 		mail.setFrom("chintookudake@gmail.com");

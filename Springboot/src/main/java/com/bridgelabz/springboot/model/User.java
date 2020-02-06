@@ -13,6 +13,7 @@ import javax.persistence.Table;
 @Table(name = "User")
 public class User implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -27,12 +28,12 @@ public class User implements Serializable {
 	@Column(name = "mobile_no")
 	private long mobileNo;
 	private String confirmPassword;
-	
+
 	private boolean isVerify;
 
 	public User() {
 		System.out.println("user constructor");
-	
+
 	}
 
 	public int getId() {
@@ -82,8 +83,6 @@ public class User implements Serializable {
 	public void setMobileNo(long mobileNo) {
 		this.mobileNo = mobileNo;
 	}
-	
-	
 
 	public String getConfirmPassword() {
 		return confirmPassword;
@@ -106,11 +105,5 @@ public class User implements Serializable {
 		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", email=" + email
 				+ ", address=" + address + ", mobileNo=" + mobileNo + ", confirmPassword=" + confirmPassword + "]";
 	}
-
-	
-
-
-
-	
 
 }

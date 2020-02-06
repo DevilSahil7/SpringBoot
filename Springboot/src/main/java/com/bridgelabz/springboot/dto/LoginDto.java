@@ -3,7 +3,7 @@ package com.bridgelabz.springboot.dto;
 public class LoginDto {
 
 	private String email;
-	
+
 	private String password;
 
 	public String getEmail() {
@@ -22,9 +22,4 @@ public class LoginDto {
 		this.password = password;
 	}
 
-	
-
-	
-	
-	
 }

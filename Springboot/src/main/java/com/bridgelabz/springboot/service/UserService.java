@@ -15,20 +15,16 @@ public interface UserService {
 
 	public User getByIb(int id);
 
-	//public void saveUser(User user);
-
 	public void deleteUser(int Id);
-	
-	//User login(LoginDto loginDto);
 
 	public Response saveUser(RegisterDto registrationDto);
 
 	public Response login(LoginDto loginDto);
-	
+
 	public Response forgotPassword(ForgotPasswordDto forgotPasswordDto);
-	
+
 	public Response resetPassword(ResetPasswordDto resetPasswordDto);
-	
+
 	public Response isVerified(String token);
 
 //	void saveUser(User registrationDto);

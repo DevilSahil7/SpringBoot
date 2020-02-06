@@ -1,7 +1,6 @@
 package com.bridgelabz.springboot.dto;
 
 public class RegisterDto {
-	
 
 	private String userName;
 
@@ -12,7 +11,7 @@ public class RegisterDto {
 	private String address;
 
 	private long mobileNo;
-	
+
 	private String confirmPassword;
 
 	public String getUserName() {
@@ -68,7 +67,5 @@ public class RegisterDto {
 		return "RegisterDto [userName=" + userName + ", password=" + password + ", email=" + email + ", address="
 				+ address + ", mobileNo=" + mobileNo + ", confirmPassword=" + confirmPassword + "]";
 	}
-	
-	
 
 }

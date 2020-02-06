@@ -3,9 +3,9 @@ package com.bridgelabz.springboot.dto;
 public class ResetPasswordDto {
 
 	private String email;
-	
+
 	private String password;
-	
+
 	private String confirmPassword;
 
 	public String getEmail() {
@@ -31,6 +31,5 @@ public class ResetPasswordDto {
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
 	}
-	
-	
+
 }

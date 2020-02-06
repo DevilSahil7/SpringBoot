@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,7 +35,7 @@ public class UserController {
 
 	@PostMapping("/addUser")
 	public ResponseEntity<Response> addUser(@RequestBody RegisterDto registrationDto) {
-		System.out.println("my data"+registrationDto.toString());
+		System.out.println("my data" + registrationDto.toString());
 		return new ResponseEntity<Response>(service.saveUser(registrationDto), HttpStatus.OK);
 	}
 
@@ -54,15 +53,15 @@ public class UserController {
 	public ResponseEntity<Response> resetPassword(@RequestBody ResetPasswordDto resetPasswordDto) {
 		return new ResponseEntity<Response>(service.resetPassword(resetPasswordDto), HttpStatus.OK);
 	}
-	
+
 	@PostMapping("/isVerify")
-	public ResponseEntity<Response> isVerifiy(@RequestParam String token){
+	public ResponseEntity<Response> isVerifiy(@RequestParam String token) {
 		return new ResponseEntity<Response>(service.isVerified(token), HttpStatus.OK);
 	}
 
 	@GetMapping("/list")
-	public ResponseEntity<List> list() {
-		return new ResponseEntity<List> (service.getAllUsers(),HttpStatus.OK);
+	public ResponseEntity<List<User>> list() {
+		return new ResponseEntity<List<User>>(service.getAllUsers(), HttpStatus.OK);
 
 	}
 
@@ -77,36 +76,4 @@ public class UserController {
 		service.deleteUser(id);
 		return "Deleted " + id;
 	}
-
-//	@PostMapping("/save")
-//	public RegistrationDto save(@RequestBody RegistrationDto user) {
-//		User dbuser = repository.findByEmail(user.getEmail());
-//		user.toString();
-//		if(dbuser != null) {
-//			System.out.println("already exist");
-//		}else {
-//		
-//		service.saveUser(user);
-//		}
-//		return user;
-//	}
-//	
-	//
-//	@PostMapping("/login")
-//	public void login(@RequestBody LoginDto loginDto) {
-//		List<User> users = repository.findAll();
-//		boolean find = false;
-//		for (User user : users) {
-//			if (user.getUserName().equals(loginDto.getUserName())
-//					&& user.getPassword().equals(loginDto.getPassword())) {
-//				find = true;
-//				System.out.println("login success");
-//				
-//			}
-//		}
-//		if (!find) {
-//			System.out.println("login failed");
-//		}
-//
-//	}
 }
