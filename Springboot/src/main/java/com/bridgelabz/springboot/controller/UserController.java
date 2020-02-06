@@ -70,7 +70,6 @@ public class UserController {
 		return service.getByIb(id);
 	}
 
-//
 	@DeleteMapping("/delete/{id}")
 	public String deleteUser(@PathVariable(value = "id") int id) {
 		service.deleteUser(id);
